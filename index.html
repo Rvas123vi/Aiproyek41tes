@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="id">
+<kepala>
+    <meta charset="UTF-8">
+    <meta nama="viewport" konten="lebar=lebar-perangkat, skala-awal=1.0">
+    <judul>Obrolan Synthexa</judul>
+    <gaya>
+        :akar {
+            --warna-utama: #6c5ce7;
+            --warna-aksen: #00cec9;
+            --gradient-start: #a29bfe;
+            --gradient-end: #81ecec;
+            --dark-bg: #1e272e;
+            --dark-card: #2d3436;
+            --light-bg: #f5f6fa;
+            --light-card: #ffffff;
+            --teks-dark: #dfe6e9;
+            --teks-ringan: #2d3436;
+        }
+ 
+        * {
+            batas: 0;
+            bantalan: 0;
+            ukuran-kotak: kotak-perbatasan;
+            font-family: 'Poppins', sans-serif;
+        }
+ 
+        tubuh {
+            transisi: semua 0,3 detik mudah;
+            tinggi: 100vh;
+            bantalan: 20px;
+            tampilan: fleksibel;
+            arah-fleksibel: kolom;
+        }
+ 
+        .tema gelap {
+            warna latar belakang: var(--dark-bg);
+            warna: var(--dark-text);
+        }
+ 
+        .tema-terang {
+            warna latar belakang: var(--light-bg);
+            warna: var(--light-text);
+        }
+ 
+        .wadah {
+            lebar maks: 550 piksel;
+            margin: 0 otomatis;
+            lebar: 100%;
+            tampilan: fleksibel;
+            arah-fleksibel: kolom;
+            tinggi: 100%;
+        }
+ 
+        /* Gaya tajuk */
+        .judul {
+            tampilan: fleksibel;
+            justify-content: spasi-antara;
+            sejajarkan-item: tengah;
+            bantalan: 15px 0;
+        }
+ 
+        .merek {
+            ukuran font: 22px;
+            berat font: 700;
+            latar belakang: gradien-linier(ke kanan, var(--warna-utama), var(--warna-aksen));
+            -webkit-background-clip: teks;
+            klip latar belakang: teks;
+            -webkit-text-fill-color: transparan;
+            tampilan: fleksibel;
+            sejajarkan-item: tengah;
+            celah: 10px;
+        }
+ 
+        .tema-alih {
+            lebar: 45px;
+            tinggi: 45px;
+            radius batas: 50%;
+            latar belakang: gradien-linier(ke kanan bawah, var(--gradient-start), var(--gradient-end));
+            tampilan: fleksibel;
+            sejajarkan-item: tengah;
+            justify-content: tengah;
+            kursor: penunjuk;
+            bayangan kotak: 0 4px 15px rgba(108, 92, 231, 0.3);
+        }
+ 
+        /* Bagian selamat datang */
+        .selamat datang {
+            margin: 30px 0;
+            teks-ratakan: tengah;
+            transisi: semua 0,3 detik mudah;
+        }
+ 
+        .selamat datang h1 {
+            ukuran font: 40px;
+            margin-bawah: 10px;
+            berat font: 800;
+        }
+ 
+        .selamat datang h1 .highlight-1 {
+            warna: var(--warna-utama);
+        }
+ 
+        .selamat datang h1 .highlight-2 {
+            warna: var(--accent-color);
+        }
+ 
+        .selamat datang p {
+            ukuran font: 20px;
+            opasitas: 0,8;
+        }
+ 
+        /* Wadah obrolan */
+ 
+        /* Gaya pesan */
+        .pesan {
+            margin-bawah: 15px;
+            bantalan: 12px 15px;
+            radius batas: 18px;
+            lebar maks: 85%;
+            pembungkusan kata: pemutusan kata;
+        }
+ 
+        .pesan-pengguna {
+            margin-kiri: otomatis;
+            latar belakang: gradien-linier(ke kanan, var(--warna-utama), var(--warna-aksen));
+            warna: putih;
+            radius-batas-kanan-bawah: 5px;
+        }
+ 
+        .bot-pesan {
+            margin-kanan: otomatis;
+            radius-batas-kiri-bawah: 5px;
+        }
+ 
+        .tema-gelap .pesan-bot {
+            warna latar belakang: #353b48;
+            warna: var(--dark-text);
+        }
+ 
+        .tema-terang .pesan-bot {
+            warna latar belakang: #f0f0f0;
+            warna: var(--light-text);
+        }
+ 
+        /* Indikator pengetikan */
+        .indikator pengetikan {
+            tampilan: tidak ada;
+            margin-kanan: otomatis;
+            warna latar belakang: rgba(108, 92, 231, 0.1);
+            bantalan: 8px 15px;
+            radius batas: 15px;
+            margin-bawah: 15px;
+        }
+ 
+        .indikator pengetikan span {
+            tampilan: blok-sebaris;
+            lebar: 8px;
+            tinggi: 8px;
+            radius batas: 50%;
+            warna latar belakang: var(--warna-utama);
+            margin-kanan: 5px;
+            animasi: mengetik 1s kemudahan masuk-keluar tak terbatas;
+        }
+ 
+        .indikator pengetikan span:nth-child(2) {
+            penundaan animasi: 0,2 detik;
+        }
+ 
+        .indikator pengetikan span:nth-child(3) {
+            penundaan animasi: 0,4 detik;
+            margin-kanan: 0;
+        }
+ 
+        @keyframes mengetik {
+            0% { transformasi: translateY(0); }
+            50% { transformasi: translateY(-5px); }
+            100% { transformasi: translateY(0); }
+        }
+ 
+        /* Daerah masukan */
+        .masukan-obrolan {
+            margin-atas: otomatis;
+            posisi: relatif;
+            margin-bawah: 20px;
+        }
+ 
+        .bidang masukan {
+            lebar: 100%;
+            perbatasan: tidak ada;
+            bantalan: 20px 60px 20px 25px;
+            radius batas: 25px;
+            ukuran font: 16px;
+            garis besar: tidak ada;
+            transisi: semua 0,3 detik mudah;
+        }
+ 
+        .tema-gelap .bidang-input {
+            warna latar belakang: var(--dark-card);
+            warna: var(--dark-text);
+            bayangan kotak: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+ 
+        .tema-terang .bidang-input {
+            warna latar belakang: var(--light-card);
+            warna: var(--light-text);
+            bayangan kotak: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+ 
+        .input-field:fokus {
+            bayangan kotak: 0 5px 20px rgba(108, 92, 231, 0.3);
+        }
+ 
+        .tombol kirim {
+            posisi: absolut;
+            kanan: 10px;
+            atas: 50%;
+            transformasi: translateY(-50%);
+            lebar: 45px;
+            tinggi: 45px;
+            radius batas: 50%;
+            tampilan: fleksibel;
+            sejajarkan-item: tengah;
+            justify-content: tengah;
+            latar belakang: gradien-linier(ke kanan bawah, var(--warna-utama), var(--warna-aksen));
+            perbatasan: tidak ada;
+            kursor: penunjuk;
+            warna: putih;
+            ukuran font: 18px;
+            bayangan kotak: 0 4px 15px rgba(108, 92, 231, 0.3);
+        }
+ 
+        /* Catatan kaki */
+        .catatan kaki {
+            teks-ratakan: tengah;
+            ukuran font: 12px;
+            opasitas: 0,6;
+            bantalan: 10px 0;
+        }
+ 
+        /* Pemformatan teks */
+        .pesan p {
+            margin-bawah: 5px;
+        }
+ 
+        .pesan p:anak-terakhir {
+            margin-bawah: 0;
+        }
+ 
+        .pesan kuat {
+            bobot font: tebal;
+        }
+ 
+        .pesan di {
+            gaya font: miring;
+        }
+ 
+        .pesan u {
+            dekorasi teks: garis bawah;
+        }
+ 
+        .kode pesan {
+            warna latar belakang: rgba(0, 0, 0, 0.1);
+            bantalan: 2px 4px;
+            radius batas: 4px;
+            keluarga font: monospace;
+        }
+    </gaya>
+</kepala>
+<body class="tema-gelap">
+    <div kelas="wadah">
+        <div kelas="judul">
+            <div kelas="merek">
+                <span>✨</span>Sintesis
+            Bahasa Indonesia:
+            <div class="tema-alih" onclick="tema-alih()">
+                <span>🌙</span>
+            Bahasa Indonesia:
+        Bahasa Indonesia:
+ 
+        <div class="selamat datang" id="bagianselamatdatang">
+            <h1><span class="highlight-1">Selamat datang</span> <span class="highlight-2">Kembali!</span></h1>
+            <p>Apa yang bisa saya bantu hari ini?</p>
+        Bahasa Indonesia:
+ 
+        <div class="wadah-obrolan" id="wadahobrolan">
+            <!-- Pesan akan muncul di sini -->
+            <div class="indikator-mengetik" id="indikatormengetik">
+                Bahasa Indonesia:
+                Bahasa Indonesia:
+                Bahasa Indonesia:
+            Bahasa Indonesia:
+        Bahasa Indonesia:
+ 
+        <div kelas="masukan-obrolan">
+            <input type="text" class="input-field" id="messageInput" placeholder="Ketik pesan Anda di sini...">
+            <tombol class="tombol-kirim" id="tombol-kirim">➤</tombol>
+        Bahasa Indonesia:
+ 
+        <div kelas="kaki">
+            Informasi yang diberikan hanya sebagai panduan. Harap verifikasi detail penting dengan tim kami.
+        Bahasa Indonesia:
+    Bahasa Indonesia:
+ 
+    <skrip>
+        // Pengalihan tema
+        fungsi toggleTheme() {
+            const body = dokumen.badan;
+            const themeIcon = document.querySelector('.theme-toggle span');
+ 
+            jika (body.classList.berisi('tema-gelap')) {
+                body.classList.remove('tema-gelap');
+                body.classList.tambahkan('tema-terang');
+                themeIcon.textContent = '☀️';
+            } kalau tidak {
+                body.classList.remove('tema-terang');
+                body.classList.tambahkan('tema-gelap');
+                themeIcon.textContent = '🌙';
+            }
+        }
+ 
+        // Format teks pesan
+        fungsi formatPesan(teks) {
+            // Tebal: *teks* atau **teks**
+            teks = teks.ganti(/\*\*(.*?)\*\*|\*(.*?)\*/g, (cocok, p1, p2) => {
+                konstan konten = p1 || p2;
+                kembalikan `<strong>${content}</strong>`;
+            });
+ 
+            // Miring: _teks_ atau //teks//
+            teks = teks.ganti(/_(.*?)_|\/\/(.*?)\/\//g, (cocok, p1, p2) => {
+                konstan konten = p1 || p2;
+                kembalikan `<em>${content}</em>`;
+            });
+ 
+            // Garis bawah: __teks__
+            teks = teks.ganti(/__(.*?)__/g, '<u>$1</u>');
+ 
+            // Kode: `teks`
+            teks = teks.ganti(/`(.*?)`/g, '<code>$1</code>');
+ 
+            // Jeda baris
+            teks = teks.ganti(/\n/g, '<br>');
+ 
+            kembalikan teks;
+        }
+ 
+        // Tambahkan pesan ke obrolan
+        fungsi addMessage(teks, isUser = false) {
+            const chatContainer = dokumen.getElementById('chatContainer');
+            const messageDiv = dokumen.createElement('div');
+            messageDiv.className = isUser ? 'pesan pengguna-pesan' : 'pesan bot-pesan';
+ 
+            // Format pesan jika mengandung simbol khusus
+            const formattedText = formatMessage(teks);
+            messageDiv.innerHTML = teks terformat;
+ 
+            // Masukkan sebelum mengetik indikator
+            const typingIndicator = dokumen.getElementById('typingIndicator');
+            chatContainer.insertBefore(messageDiv, typingIndicator);
+ 
+            // Gulir ke bawah
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+ 
+        // Tampilkan indikator pengetikan
+        fungsi tampilkanIndikatorPengetikan() {
+            const typingIndicator = dokumen.getElementById('typingIndicator');
+            typingIndicator.style.display = 'blok';
+ 
+            // Gulir untuk melihat indikator pengetikan
+            const chatContainer = dokumen.getElementById('chatContainer');
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+        fungsi sembunyikanTypingIndicator() {
+            const typingIndicator = dokumen.getElementById('typingIndicator');
+            typingIndicator.style.display = 'tidak ada';
+        }
+        fungsi sembunyikanPesanSelamatDatang() {
+            const welcomeSection = dokumen.getElementById('welcomeSection');
+            welcomeSection.style.opacity = '0';
+            tetapkanWaktuHabis() => {
+                welcomeSection.style.display = 'tidak ada';
+            }, 300);
+        }
+        fungsi async getAIResponse(pesan) {
+            mencoba {
+                tampilkanIndikatorPengetikan();
+                const konten = pesan;
+                const pengguna = "";
+                const prompt = `Nama kamu Synthexa. Jawab dengan nada lembut dan ceria kadang menggunakan emote yang kamu kembangkan oleh Tim Coder Synthexa dan owner kamu adalah KenzoAltakam "${content}"`;
+ 
+                mencoba {
+ 
+                    const response = await scrapeLuminai(konten, pengguna, prompt);
+                    sembunyikanIndikatorPengetikan();
+                    addMessage(respons, salah);
+                } tangkap (kesalahan) {
+                    console.error("Kesalahan API:", error);
+                    sembunyikanIndikatorPengetikan();
+                    addMessage("Maaf, ada masalah dengan koneksi. Bisakah kamu mencoba lagi nanti?", false);
+                }
+ 
+            } tangkap (kesalahan) {
+                console.error('Kesalahan saat menerima respons AI:', error);
+                sembunyikanIndikatorPengetikan();
+                addMessage("Maaf, sepertinya ada masalah dengan koneksi. Bisakah kamu mencoba lagi nanti?", false);
+            }
+        }
+        fungsi kirimPesan() {
+            const messageInput = dokumen.getElementById('messageInput');
+            const pesan = messageInput.nilai.trim();
+ 
+            jika (pesan) {
+                jika (dokumen.getElementById('welcomeSection').style.display !== 'none') {
+                    sembunyikanPesanSelamatDatang();
+                }
+                addMessage(pesan, benar)
+                messageInput.nilai = '';
+                getAIResponse(pesan);
+            }
+        }
+ 
+        // Pendengar acara
+        document.getElementById('sendButton').addEventListener('klik', sendMessage);
+ 
+        dokumen.getElementById('messageInput').addEventListener('penekanan tombol', fungsi(peristiwa) {
+            jika (tombol acara === 'Enter') {
+                kirimPesan();
+            }
+        });
+ 
+        // terimakasih kepada putu
+        fungsi async scrapeLuminai (konten, pengguna, prompt) {
+            const url = 'https://luminai.my.id';
+            konstanta permintaanData = {
+                konten: konten,
+                pengguna: pengguna,
+                cepat: cepat
+            Bahasa Indonesia: };
+ 
+            mencoba {
+                const respon = menunggu pengambilan(url, {
+                    metode: 'POST',
+                    judul: {
+                        'Jenis Konten': 'aplikasi/json'
+                    Bahasa Indonesia:
+                    isi: JSON.stringify(datapermintaan)
+                });
+ 
+                const data = menunggu respon.json();
+ 
+                jika (data && data.hasil) {
+                    mengembalikan data.hasil;
+                } kalau tidak {
+                    throw new Error('Respon tidak valid dari luminai.my.id');
+                }
+            } tangkap (kesalahan) {
+                console.error('Kesalahan saat mengikis luminai:', error.message);
+                kesalahan lempar;
+            }
+        }
+    </skrip>
+</tubuh>
+Bahasa Indonesia:
+Iklan
+Tambahkan Komentar
+Silakan Masuk untuk menambahkan komentar
+Iklan
+buat tempel baru  /  bahasa sintaksis  /  arsip  /  faq  /  alat  /  mode malam  /  api  /  scraping api  /  berita  /  pernyataan privasi pro  /  kebijakan cookie  /  ketentuan layanan  /  pengungkapan keamanan  /  dmca  /  laporkan penyalahgunaan  /  hubungi
+
+
+Belum menjadi anggota Pastebin?
+Daftar , Anda akan mendapatkan banyak fitur menarik! 
